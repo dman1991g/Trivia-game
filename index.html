@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trivia Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="quiz-container">
+    <h1>Trivia Quiz</h1>
+    
+    <!-- Question Container -->
+    <div id="question-container">
+      <p id="question-text">Loading question...</p>
+      <div id="answer-buttons" class="btn-group"></div>
+    </div>
+    
+    <!-- Score Display -->
+    <p id="score-display">Score: 0</p>
+
+    <!-- Next Button (Hidden initially) -->
+    <button id="next-button" onclick="loadNextQuestion()" style="display: none;">Next Question</button>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="main.js"></script>
+</body>
+</html>
