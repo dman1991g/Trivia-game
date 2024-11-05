@@ -3,27 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trivia Quiz</title>
+  <title>Quiz App</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="quiz-container">
-    <h1>Trivia Quiz</h1>
-    
-    <!-- Question Container -->
-    <div id="question-container">
-      <p id="question-text">Loading question...</p>
-      <div id="answer-buttons" class="btn-group"></div>
-    </div>
-    
-    <!-- Score Display -->
-    <p id="score-display">Score: 0</p>
-
-    <!-- Next Button (Hidden initially) -->
-    <button id="next-button" onclick="loadNextQuestion()" style="display: none;">Next Question</button>
+  <!-- Start Screen -->
+  <div id="start-screen">
+    <h1>Welcome to the Quiz!</h1>
+    <button id="start-button">Start Quiz</button>
   </div>
 
-  <!-- JavaScript -->
-  <script src="main.js"></script>
+  <!-- Quiz Container -->
+  <div id="quiz-container" style="display: none;">
+    <div id="question-text">Loading question...</div>
+    <div id="answer-buttons" class="button-container"></div>
+    <button id="next-button" style="display: none;">Next Question</button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
