@@ -11,9 +11,15 @@ const nextButton = document.getElementById('next-button');
 
 // Load questions from JSON file
 fetch('questions.json')
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to load questions.json');
+        }
+        return response.json();
+    })
     .then(data => {
         questions = Object.values(data); // Convert JSON object to array
+        console.log('Questions loaded:', questions);
     })
     .catch(error => console.error('Error loading questions:', error));
 
@@ -21,6 +27,11 @@ fetch('questions.json')
 startButton.addEventListener('click', startQuiz);
 
 function startQuiz() {
+    if (questions.length === 0) {
+        alert('Questions could not be loaded.');
+        return;
+    }
+    
     startButton.style.display = 'none'; // Hide start button
     quizContainer.style.display = 'block'; // Show quiz container
     currentQuestionIndex = 0;
