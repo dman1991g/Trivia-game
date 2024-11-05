@@ -1,0 +1,188 @@
+[
+  {
+    "question": "What was the name of the talking car in the television show 'Knight Rider'?",
+    "answers": [
+      { "text": "HAL", "correct": false },
+      { "text": "BENDER", "correct": false },
+      { "text": "KITT", "correct": true },
+      { "text": "JEEVES", "correct": false }
+    ]
+  },
+  {
+    "question": "Tilda Swinton plays the role of which character in the Marvel Cinematic Universe?",
+    "answers": [
+      { "text": "Agent Peggy Carter", "correct": false },
+      { "text": "Rocket Raccoon", "correct": false },
+      { "text": "Valkyrie", "correct": false },
+      { "text": "The Ancient One", "correct": true }
+    ]
+  },
+  {
+    "question": "Who won the 2014 Academy Award for Best Leading Actor for playing the role of Stephen Hawking in 'The Theory of Everything'?",
+    "answers": [
+      { "text": "Eddie Redmayne", "correct": true },
+      { "text": "Steve Carell", "correct": false },
+      { "text": "Bradley Cooper", "correct": false },
+      { "text": "Benedict Cumberbatch", "correct": false }
+    ]
+  },
+  {
+    "question": "Name the movie that matches the following plot summary: 'Follows the rise and fall of a stock-broker living the high life.'",
+    "answers": [
+      { "text": "Django Unchained", "correct": false },
+      { "text": "The Wolf of Wall Street", "correct": true },
+      { "text": "Up", "correct": false },
+      { "text": "Snatch", "correct": false }
+    ]
+  },
+  {
+    "question": "What are The Simpsons Halloween specials known as?",
+    "answers": [
+      { "text": "Spooky Springfield", "correct": false },
+      { "text": "The Halloween Haunt", "correct": false },
+      { "text": "Evergreen Menace", "correct": false },
+      { "text": "Treehouse of Horror", "correct": true }
+    ]
+  },
+  {
+    "question": "Which wizard was portrayed by Christopher Lee in 'The Lord Of The Rings'?",
+    "answers": [
+      { "text": "Saruman", "correct": true },
+      { "text": "Gandalf", "correct": false },
+      { "text": "Radagast", "correct": false },
+      { "text": "Merlin", "correct": false }
+    ]
+  },
+  {
+    "question": "Name the movie that matches the following plot summary: 'The daughter of a plantation owner conducts a romance with a roguish profiteer.'",
+    "answers": [
+      { "text": "Downfall", "correct": false },
+      { "text": "My Neighbour Totoro", "correct": false },
+      { "text": "Gone with the Wind", "correct": true },
+      { "text": "Up", "correct": false }
+    ]
+  },
+  {
+    "question": "Which film contains the character Oda Mae Brown?",
+    "answers": [
+      { "text": "Apocalypse Now", "correct": false },
+      { "text": "Ghost", "correct": true },
+      { "text": "Blue Velvet", "correct": false },
+      { "text": "Terms of Endearment", "correct": false }
+    ]
+  },
+  {
+    "question": "Who is the only actor to receive an Oscar nomination for acting in a Lord of the Rings movie?",
+    "answers": [
+      { "text": "Ian Mckellen", "correct": true },
+      { "text": "Elijah Wood", "correct": false },
+      { "text": "Andy Serkis", "correct": false },
+      { "text": "Christopher Lee", "correct": false }
+    ]
+  },
+  {
+    "question": "Which actor plays the role of Michelle 'MJ' Jones-Watson in the Marvel Cinematic Universe?",
+    "answers": [
+      { "text": "Elizabeth Olsen", "correct": false },
+      { "text": "Hayley Atwell", "correct": false },
+      { "text": "Zendaya", "correct": true },
+      { "text": "Karen Gillan", "correct": false }
+    ]
+  },
+  {
+    "question": "Which actor plays the role of Bucky Barnes in the Marvel Cinematic Universe?",
+    "answers": [
+      { "text": "Sebastian Stan", "correct": true },
+      { "text": "Stellan Skarsgård", "correct": false },
+      { "text": "John Slattery", "correct": false },
+      { "text": "Jeff Goldblum", "correct": false }
+    ]
+  },
+  {
+    "question": "In the Marvel Cinematic Universe, which character is played by Karen Gillan?",
+    "answers": [
+      { "text": "Eitri", "correct": false },
+      { "text": "Nebula", "correct": true },
+      { "text": "Shuri", "correct": false },
+      { "text": "Pepper Potts", "correct": false }
+    ]
+  },
+  {
+    "question": "What animated classic was the first film of the late 20th century Disney Renaissance?",
+    "answers": [
+      { "text": "Little Mermaid", "correct": true },
+      { "text": "Lilo & Stitch", "correct": false },
+      { "text": "Sleeping Beauty", "correct": false },
+      { "text": "101 Dalmatians", "correct": false }
+    ]
+  },
+  {
+    "question": "What was the first feature-length animated movie ever released?",
+    "answers": [
+      { "text": "Cinderella", "correct": false },
+      { "text": "Snow White and the Seven Dwarfs", "correct": true },
+      { "text": "Beauty and the Beast", "correct": false },
+      { "text": "Paw Patrol", "correct": false }
+    ]
+  },
+  {
+    "question": "Who won the 1998 Academy Award for Best Leading Actress for playing the role of Viola De Lesseps in 'Shakespeare in Love'?",
+    "answers": [
+      { "text": "Gwyneth Paltrow", "correct": true },
+      { "text": "Cate Blanchett", "correct": false },
+      { "text": "Fernanda Montenegro", "correct": false },
+      { "text": "Meryl Streep", "correct": false }
+    ]
+  },
+  {
+    "question": "Which film contains the character Jules Winnfield?",
+    "answers": [
+      { "text": "A Streetcar Named Desire", "correct": false },
+      { "text": "Grease", "correct": false },
+      { "text": "Gangs of New York", "correct": false },
+      { "text": "Pulp Fiction", "correct": true }
+    ]
+  },
+  {
+    "question": "Who won the 2000 Academy Award for Best Leading Actor for playing the role of Maximus Decimus Meridius in 'Gladiator'?",
+    "answers": [
+      { "text": "Russell Crowe", "correct": true },
+      { "text": "Javier Bardem", "correct": false },
+      { "text": "Tom Hanks", "correct": false },
+      { "text": "Ed Harris", "correct": false }
+    ]
+  },
+  {
+    "question": "Who played the role of James Bond in 'The Man with the Golden Gun'?",
+    "answers": [
+      { "text": "Pierce Brosnan", "correct": false },
+      { "text": "George Lazenby", "correct": false },
+      { "text": "Roger Moore", "correct": true },
+      { "text": "Timothy Dalton", "correct": false }
+    ]
+  },
+  {
+    "question": "Which director directed 'Inglourious Basterds'?",
+    "answers": [
+      { "text": "Ridley Scott", "correct": false },
+      { "text": "Spike Lee", "correct": false },
+      { "text": "Oliver Stone", "correct": false },
+      { "text": "Quentin Tarantino", "correct": true }
+    ]
+  },
+  {
+    "question": "Which of these quotes is from the film 'The Hunger Games'?",
+    "answers": [
+      { "text": "\"After all, tomorrow is another day!\"", "correct": false },
+      { "text": "\"May the odds ever be in your favor.\"", "correct": true },
+      { "text": "\"I'll have what she's having.\"", "correct": false },
+      { "text": "\"Exercise gives you endorphins. Endorphins make you happy. Happy people just don’t shoot their husbands. They just don’t.\"", "correct": false }
+    ]
+  },
+  {
+    "question": "Which director directed '2001: A Space Odyssey'?",
+    "answers": [
+      { "text": "Steven Spielberg", "correct": false },
+      { "text": "Francis Ford Coppola", "correct": false },
+      { "text": "Stanley Kubrick", "correct": true },
+      { "text": "Martin
