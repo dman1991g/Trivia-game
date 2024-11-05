@@ -1,72 +1,103 @@
+// Element references
+const startButton = document.getElementById('start-button');
+const quizContainer = document.getElementById('quiz-container');
+const questionText = document.getElementById('question-text');
+const answerButtons = document.getElementById('answer-buttons');
+const nextButton = document.getElementById('next-button');
+
+// Quiz data
 let questions = [];
 let currentQuestionIndex = 0;
-let score = 0;
 
-document.addEventListener('DOMContentLoaded', () => {
-  loadQuestions();
-});
-
+// Fetch questions from questions.json
 async function loadQuestions() {
   try {
     const response = await fetch('questions.json');
     questions = await response.json();
-    showQuestion();
+    questions = Object.values(questions); // Convert JSON object to an array
   } catch (error) {
     console.error("Error loading questions:", error);
   }
 }
 
+// Start the quiz
+function startQuiz() {
+  startButton.style.display = 'none';
+  quizContainer.style.display = 'block';
+  currentQuestionIndex = 0;
+  showQuestion();
+}
+
+// Display a question
 function showQuestion() {
-  const questionElement = document.getElementById('question-text');
-  const answerButtons = document.getElementById('answer-buttons');
-  const nextButton = document.getElementById('next-button');
+  resetState();
+  const question = questions[currentQuestionIndex];
+  questionText.innerText = question.question;
 
-  // Clear previous answers
-  answerButtons.innerHTML = '';
-  nextButton.style.display = 'none';
-
-  const currentQuestion = questions[currentQuestionIndex];
-  questionElement.textContent = currentQuestion.question;
-
-  currentQuestion.answers.forEach(answer => {
+  question.answers.forEach(answer => {
     const button = document.createElement('button');
-    button.textContent = answer.text;
-    button.classList.add('answer-button');
-    if (answer.correct) {
-      button.dataset.correct = answer.correct;
+    button.innerText = answer;
+    button.classList.add('btn');
+    if (answer === question.correctAnswer) {
+      button.dataset.correct = true;
     }
     button.addEventListener('click', selectAnswer);
     answerButtons.appendChild(button);
   });
 }
 
+// Reset state for new question
+function resetState() {
+  nextButton.style.display = 'none';
+  answerButtons.innerHTML = '';
+}
+
+// Handle answer selection
 function selectAnswer(event) {
   const selectedButton = event.target;
   const correct = selectedButton.dataset.correct === 'true';
-  if (correct) {
-    score++;
-  }
+  setStatusClass(selectedButton, correct);
 
-  document.getElementById('score-display').textContent = `Score: ${score}`;
-
-  Array.from(document.getElementsByClassName('answer-button')).forEach(button => {
-    button.classList.add(button.dataset.correct === 'true' ? 'correct' : 'incorrect');
-    button.disabled = true;
+  Array.from(answerButtons.children).forEach(button => {
+    setStatusClass(button, button.dataset.correct === 'true');
   });
 
-  document.getElementById('next-button').style.display = 'block';
-}
-
-function loadNextQuestion() {
-  currentQuestionIndex++;
-  if (currentQuestionIndex < questions.length) {
-    showQuestion();
+  if (questions.length > currentQuestionIndex + 1) {
+    nextButton.style.display = 'block';
   } else {
-    showFinalScore();
+    startButton.innerText = 'Restart';
+    startButton.style.display = 'block';
   }
 }
 
-function showFinalScore() {
-  document.getElementById('question-container').innerHTML = `<p>Final Score: ${score} / ${questions.length}</p>`;
-  document.getElementById('next-button').style.display = 'none';
+// Set the button style based on correctness
+function setStatusClass(element, correct) {
+  clearStatusClass(element);
+  if (correct) {
+    element.classList.add('correct');
+  } else {
+    element.classList.add('incorrect');
+  }
 }
+
+// Clear status classes
+function clearStatusClass(element) {
+  element.classList.remove('correct');
+  element.classList.remove('incorrect');
+}
+
+// Move to the next question
+function nextQuestion() {
+  currentQuestionIndex++;
+  showQuestion();
+}
+
+// Event listeners
+startButton.addEventListener('click', async () => {
+  await loadQuestions();
+  startQuiz();
+});
+
+nextButton.addEventListener('click', () => {
+  nextQuestion();
+});
