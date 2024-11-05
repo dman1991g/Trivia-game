@@ -1,87 +1,92 @@
-// Variables to hold the quiz state
-let questions = []; // Will hold the loaded questions from JSON
+document.getElementById('start-button').addEventListener('click', startQuiz);
+
+let questions = []; // Empty array to store the questions
 let currentQuestionIndex = 0;
+let score = 0;
 
-// Get HTML elements
-const startButton = document.getElementById('start-button');
-const quizContainer = document.getElementById('quiz-container');
-const questionText = document.getElementById('question-text');
-const answerButtons = document.getElementById('answer-buttons');
-const nextButton = document.getElementById('next-button');
+// Fetch questions from questions.json
+function loadQuestions() {
+    fetch('questions.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); // Parse the JSON
+        })
+        .then(data => {
+            questions = data; // Store questions in the questions array
+            console.log('Questions loaded:', questions); // Debugging line
+            startQuiz(); // Automatically start the quiz after questions are loaded
+        })
+        .catch(error => {
+            console.error('There was a problem with loading the questions:', error);
+        });
+}
 
-// Load questions from JSON file
-fetch('questions.json')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to load questions.json');
-        }
-        return response.json();
-    })
-    .then(data => {
-        questions = Object.values(data); // Convert JSON object to array
-        console.log('Questions loaded:', questions);
-    })
-    .catch(error => console.error('Error loading questions:', error));
-
-// Start the quiz
-startButton.addEventListener('click', startQuiz);
-
+// Start the quiz and show the first question
 function startQuiz() {
+    // Hide the welcome screen
+    document.getElementById('welcome').style.display = 'none';
+
+    // Show the quiz container
+    document.getElementById('quiz-container').style.display = 'block';
+
+    // Load questions if not already loaded
     if (questions.length === 0) {
-        alert('Questions could not be loaded.');
-        return;
-    }
-    
-    startButton.style.display = 'none'; // Hide start button
-    quizContainer.style.display = 'block'; // Show quiz container
-    currentQuestionIndex = 0;
-    showQuestion();
-}
-
-// Display the current question and answer choices
-function showQuestion() {
-    // Clear any previous answers
-    answerButtons.innerHTML = '';
-    nextButton.style.display = 'none'; // Hide next button initially
-
-    const currentQuestion = questions[currentQuestionIndex];
-    questionText.textContent = currentQuestion.question; // Set question text
-
-    // Create answer buttons
-    currentQuestion.answers.forEach(answer => {
-        const button = document.createElement('button');
-        button.classList.add('btn');
-        button.textContent = answer;
-        button.addEventListener('click', () => selectAnswer(button, currentQuestion.correctAnswer));
-        answerButtons.appendChild(button);
-    });
-}
-
-// Handle answer selection
-function selectAnswer(selectedButton, correctAnswer) {
-    // Disable all answer buttons after selection
-    Array.from(answerButtons.children).forEach(button => {
-        button.disabled = true;
-        if (button.textContent === correctAnswer) {
-            button.classList.add('correct'); // Highlight correct answer
-        } else {
-            button.classList.add('incorrect'); // Highlight incorrect answers
-        }
-    });
-
-    if (currentQuestionIndex < questions.length - 1) {
-        nextButton.style.display = 'inline-block'; // Show next button if there are more questions
+        loadQuestions();
     } else {
-        nextButton.textContent = 'Finish'; // Change to "Finish" on the last question
+        displayQuestion(); // Display the first question if already loaded
     }
 }
 
-// Move to the next question
-nextButton.addEventListener('click', () => {
-    currentQuestionIndex++;
+// Display a question and its answers
+function displayQuestion() {
     if (currentQuestionIndex < questions.length) {
-        showQuestion(); // Show next question
+        const question = questions[currentQuestionIndex];
+        const questionContainer = document.getElementById('question-container');
+        const answersContainer = document.getElementById('answers-container');
+        
+        // Set the question text
+        questionContainer.textContent = question.question;
+
+        // Clear previous answers
+        answersContainer.innerHTML = '';
+
+        // Create answer buttons dynamically
+        question.answers.forEach((answer, index) => {
+            const answerButton = document.createElement('button');
+            answerButton.textContent = answer.text;
+            answerButton.addEventListener('click', () => checkAnswer(answer, index));
+            answersContainer.appendChild(answerButton);
+        });
     } else {
-        quizContainer.innerHTML = '<h2>Quiz Completed!</h2>'; // Show completion message
+        endQuiz(); // End the quiz if all questions have been answered
     }
-});
+}
+
+// Check if the answer is correct
+function checkAnswer(answer, index) {
+    const feedbackContainer = document.getElementById('feedback-container');
+    
+    if (answer.correct) {
+        score++;
+        feedbackContainer.textContent = 'Correct!';
+    } else {
+        feedbackContainer.textContent = 'Wrong!';
+    }
+
+    // Move to the next question after a brief delay
+    setTimeout(() => {
+        currentQuestionIndex++;
+        feedbackContainer.textContent = ''; // Clear feedback
+        displayQuestion(); // Show the next question
+    }, 1000);
+}
+
+// End the quiz and display the final score
+function endQuiz() {
+    document.getElementById('quiz-container').style.display = 'none';
+    const finalScoreContainer = document.getElementById('final-score');
+    finalScoreContainer.textContent = `Your final score is: ${score} / ${questions.length}`;
+    finalScoreContainer.style.display = 'block';
+}
