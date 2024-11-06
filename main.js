@@ -2,7 +2,6 @@ const startButton = document.getElementById('start-btn');
 startButton.addEventListener('click', startQuiz);
 
 function startQuiz() {
-  alert("Starting quiz..."); // Added alert
   const questionBox = document.getElementById('questionBox');
   const nextButton = document.getElementById('next-Btn');
   const questionContainer = document.getElementById('question-container');
@@ -21,8 +20,6 @@ function startQuiz() {
       return response.json();
     })
     .then(data => {
-      alert("Questions loaded successfully!"); // Added alert
-      
       if (!Array.isArray(data) || data.length === 0) {
         throw new Error('No questions available in the JSON file.');
       }
