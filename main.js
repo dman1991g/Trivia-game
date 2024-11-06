@@ -1,15 +1,16 @@
 const startButton = document.getElementById('start-btn');
-startButton.addEventListener('click', () => {
-  alert("Start button clicked"); // Alert to confirm button click is detected
-  startQuiz();
-});
+startButton.addEventListener('click', startQuiz);
 
 function startQuiz() {
-  alert("Starting quiz..."); // Alert to confirm startQuiz function is called
-
+  alert("Starting quiz..."); // Added alert
   const questionBox = document.getElementById('questionBox');
   const nextButton = document.getElementById('nextBtn');
-  
+  const questionContainer = document.getElementById('question-container');
+
+  // Display the question container
+  questionContainer.style.display = 'block';
+
+  // Display a loading message before questions are loaded
   questionBox.textContent = "Loading question...";
 
   fetch('questions.json')
@@ -20,13 +21,13 @@ function startQuiz() {
       return response.json();
     })
     .then(data => {
+      alert("Questions loaded successfully!"); // Added alert
+      
       if (!Array.isArray(data) || data.length === 0) {
         throw new Error('No questions available in the JSON file.');
       }
-      
+
       questionBox.textContent = "";
-      alert("Questions loaded successfully"); // Alert to confirm questions loaded
-      
       displayQuestion(data[0]);
 
       let currentQuestionIndex = 0;
@@ -52,7 +53,7 @@ function displayQuestion(questionData) {
   questionBox.textContent = questionData.question;
 
   const answersBox = document.getElementById('answersBox');
-  answersBox.innerHTML = '';
+  answersBox.innerHTML = ''; // Clear previous answers
 
   questionData.answers.forEach(answer => {
     const button = document.createElement('button');
