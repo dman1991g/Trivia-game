@@ -4,7 +4,7 @@ startButton.addEventListener('click', startQuiz);
 function startQuiz() {
   alert("Starting quiz..."); // Added alert
   const questionBox = document.getElementById('questionBox');
-  const nextButton = document.getElementById('nextBtn');
+  const nextButton = document.getElementById('next-Btn');
   const questionContainer = document.getElementById('question-container');
 
   // Display the question container
