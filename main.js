@@ -2,8 +2,8 @@ const startButton = document.getElementById('start-btn');
 startButton.addEventListener('click', startQuiz);
 
 function startQuiz() {
-  const questionBox = document.getElementById('questionBox');
-  const nextButton = document.getElementById('nextBtn');
+  const questionBox = document.getElementById('question');
+  const nextButton = document.getElementById('next-button'); // Corrected ID
   
   // Display a loading message before questions are loaded
   questionBox.textContent = "Loading question...";
@@ -48,10 +48,10 @@ function startQuiz() {
 }
 
 function displayQuestion(questionData) {
-  const questionBox = document.getElementById('questionBox');
+  const questionBox = document.getElementById('question');
   questionBox.textContent = questionData.question;
 
-  const answersBox = document.getElementById('answersBox');
+  const answersBox = document.getElementById('answer-buttons'); // Corrected ID
   answersBox.innerHTML = ''; // Clear previous answers
 
   questionData.answers.forEach(answer => {
