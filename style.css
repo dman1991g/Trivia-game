@@ -37,10 +37,9 @@ h1 {
 }
 
 .answers-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
-    justify-items: center;
 }
 
 .answer {
@@ -49,9 +48,8 @@ h1 {
     padding: 15px;
     border-radius: 5px;
     font-size: 18px;
-    width: 90%;
+    width: 100%;
     cursor: pointer;
-    text-align: center;
 }
 
 .answer:hover {
