@@ -1,44 +1,99 @@
+
+/* Body styles */
 body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  margin: 0;
-  background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
 }
 
+/* Quiz container */
 #quiz-container {
-  text-align: center;
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  max-width: 400px;
+    width: 80%;
+    margin: 20px auto;
+    text-align: center;
 }
 
-.btn-group button {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+/* Start button styles */
+#start-btn {
+    font-size: 24px;
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
 }
 
-.btn-group button:hover {
-  background-color: #0056b3;
+#start-btn:hover {
+    background-color: #45a049;
 }
 
-#next-button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+/* Question container */
+#question-container {
+    display: none; /* Hidden until quiz starts */
+    margin-top: 20px;
+}
+
+/* Question text */
+#question-text {
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Answer buttons container */
+.answer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Answer button styles */
+.answer-btn {
+    width: 45%;
+    margin: 10px 2%;
+    padding: 15px;
+    font-size: 16px;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.answer-btn:hover {
+    background-color: #ddd;
+}
+
+/* Next button styles */
+#next-btn {
+    font-size: 20px;
+    padding: 15px 30px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+#next-btn:hover {
+    background-color: #007bb5;
+}
+
+/* End message */
+#end-message {
+    display: none; /* Hidden until quiz ends */
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Centering everything in the page */
+.centered {
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
 }
