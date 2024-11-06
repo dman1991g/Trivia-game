@@ -1,92 +1,73 @@
-document.getElementById('start-button').addEventListener('click', startQuiz);
+const startButton = document.getElementById('start-button');
+const nextButton = document.getElementById('next-button');
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const answerButtons = document.getElementById('answer-buttons');
 
-let questions = []; // Empty array to store the questions
+let questions = [];
 let currentQuestionIndex = 0;
-let score = 0;
 
-// Fetch questions from questions.json
-function loadQuestions() {
-    fetch('questions.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json(); // Parse the JSON
-        })
-        .then(data => {
-            questions = data; // Store questions in the questions array
-            console.log('Questions loaded:', questions); // Debugging line
-            startQuiz(); // Automatically start the quiz after questions are loaded
-        })
-        .catch(error => {
-            console.error('There was a problem with loading the questions:', error);
-        });
+startButton.addEventListener('click', startGame);
+nextButton.addEventListener('click', () => {
+    currentQuestionIndex++;
+    setNextQuestion();
+});
+
+async function startGame() {
+    questions = await loadQuestions();
+    currentQuestionIndex = 0;
+    questionContainer.classList.remove('hidden');
+    startButton.classList.add('hidden');
+    setNextQuestion();
 }
 
-// Start the quiz and show the first question
-function startQuiz() {
-    // Hide the welcome screen
-    document.getElementById('welcome').style.display = 'none';
-
-    // Show the quiz container
-    document.getElementById('quiz-container').style.display = 'block';
-
-    // Load questions if not already loaded
-    if (questions.length === 0) {
-        loadQuestions();
-    } else {
-        displayQuestion(); // Display the first question if already loaded
+async function loadQuestions() {
+    const response = await fetch('questions.json');
+    if (!response.ok) {
+        throw new Error('Failed to load questions');
     }
+    return await response.json();
 }
 
-// Display a question and its answers
-function displayQuestion() {
+function setNextQuestion() {
+    resetState();
     if (currentQuestionIndex < questions.length) {
-        const question = questions[currentQuestionIndex];
-        const questionContainer = document.getElementById('question-container');
-        const answersContainer = document.getElementById('answers-container');
-        
-        // Set the question text
-        questionContainer.textContent = question.question;
-
-        // Clear previous answers
-        answersContainer.innerHTML = '';
-
-        // Create answer buttons dynamically
-        question.answers.forEach((answer, index) => {
-            const answerButton = document.createElement('button');
-            answerButton.textContent = answer.text;
-            answerButton.addEventListener('click', () => checkAnswer(answer, index));
-            answersContainer.appendChild(answerButton);
-        });
+        showQuestion(questions[currentQuestionIndex]);
     } else {
-        endQuiz(); // End the quiz if all questions have been answered
+        // Handle quiz end
+        questionElement.innerText = 'Quiz Finished!';
+        nextButton.classList.add('hidden');
     }
 }
 
-// Check if the answer is correct
-function checkAnswer(answer, index) {
-    const feedbackContainer = document.getElementById('feedback-container');
-    
-    if (answer.correct) {
-        score++;
-        feedbackContainer.textContent = 'Correct!';
-    } else {
-        feedbackContainer.textContent = 'Wrong!';
-    }
-
-    // Move to the next question after a brief delay
-    setTimeout(() => {
-        currentQuestionIndex++;
-        feedbackContainer.textContent = ''; // Clear feedback
-        displayQuestion(); // Show the next question
-    }, 1000);
+function showQuestion(question) {
+    questionElement.innerText = question.question;
+    question.answers.forEach(answer => {
+        const button = document.createElement('button');
+        button.innerText = answer.text;
+        button.classList.add('btn');
+        button.addEventListener('click', () => selectAnswer(answer));
+        answerButtons.appendChild(button);
+    });
+    nextButton.classList.add('hidden'); // Hide next button until an answer is selected
 }
 
-// End the quiz and display the final score
-function endQuiz() {
-    document.getElementById('quiz-container').style.display = 'none';
-    const finalScoreContainer = document.getElementById('final-score');
-    finalScoreContainer.textContent = `Your final score is: ${score} / ${questions.length}`;
-    finalScoreContainer.style.display = 'block';
+function resetState() {
+    nextButton.classList.add('hidden');
+    while (answerButtons.firstChild) {
+        answerButtons.removeChild(answerButtons.firstChild);
+    }
+}
+
+function selectAnswer(answer) {
+    const correct = answer.correct;
+    if (correct) {
+        alert('Correct!');
+    } else {
+        alert('Wrong!');
+    }
+    Array.from(answerButtons.children).forEach(button => {
+        button.disabled = true; // Disable all answer buttons after selection
+    });
+    nextButton.classList.remove('hidden'); // Show next button
 }
