@@ -1,9 +1,11 @@
+alert("JavaScript is loaded!");  // Alert to check if JS is loaded
+
 const startButton = document.getElementById('start-btn');
 startButton.addEventListener('click', startQuiz);
 
 function startQuiz() {
-  const questionBox = document.getElementById('question');
-  const nextButton = document.getElementById('next-button'); // Corrected ID
+  const questionBox = document.getElementById('questionBox');
+  const nextButton = document.getElementById('nextBtn');
   
   // Display a loading message before questions are loaded
   questionBox.textContent = "Loading question...";
@@ -48,10 +50,10 @@ function startQuiz() {
 }
 
 function displayQuestion(questionData) {
-  const questionBox = document.getElementById('question');
+  const questionBox = document.getElementById('questionBox');
   questionBox.textContent = questionData.question;
 
-  const answersBox = document.getElementById('answer-buttons'); // Corrected ID
+  const answersBox = document.getElementById('answersBox');
   answersBox.innerHTML = ''; // Clear previous answers
 
   questionData.answers.forEach(answer => {
