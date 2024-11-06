@@ -1,4 +1,5 @@
-document.getElementById('start-btn').addEventListener('click', startQuiz);
+const startButton = document.getElementById('start-btn');
+startButton.addEventListener('click', startQuiz);
 
 function startQuiz() {
   const questionBox = document.getElementById('questionBox');
