@@ -2,7 +2,7 @@
     "name": "Quiz App",
     "short_name": "Quiz",
     "description": "A fun quiz app",
-    "start_url": "/index.html",
+    "start_url": "https://dman1991g.github.io/Trivia-game/index.html",
     "display": "standalone",
     "background_color": "#f4f4f4",
     "theme_color": "#4CAF50",
