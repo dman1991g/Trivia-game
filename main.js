@@ -2,6 +2,7 @@ const startButton = document.getElementById('start-btn');
 startButton.addEventListener('click', startQuiz);
 
 function startQuiz() {
+  startButton.style.display='none';
   const questionBox = document.getElementById('questionBox');
   const nextButton = document.getElementById('next-Btn');
   const questionContainer = document.getElementById('question-container');
