@@ -43,5 +43,163 @@
       { "text": "Evergreen Menace", "correct": false },
       { "text": "Treehouse of Horror", "correct": true }
     ]
-  }
-]
+  },
+  {
+    "question": "In 'The Lion King,' what is the name of Simba's father?",
+    "answers": [
+      { "text": "Mufasa", "correct": true },
+      { "text": "Scar", "correct": false },
+      { "text": "Timon", "correct": false },
+      { "text": "Rafiki", "correct": false }
+    ]
+  },
+  {
+    "question": "Who is the princess in 'Beauty and the Beast'?",
+    "answers": [
+      { "text": "Ariel", "correct": false },
+      { "text": "Aurora", "correct": false },
+      { "text": "Belle", "correct": true },
+      { "text": "Jasmine", "correct": false }
+    ]
+  },
+  {
+    "question": "What is the name of the snowman in 'Frozen'?",
+    "answers": [
+      { "text": "Olaf", "correct": true },
+      { "text": "Sven", "correct": false },
+      { "text": "Kristoff", "correct": false },
+      { "text": "Hans", "correct": false }
+    ]
+  },
+  {
+    "question": "In 'Aladdin,' what is the name of the princess?",
+    "answers": [
+      { "text": "Jasmine", "correct": true },
+      { "text": "Ariel", "correct": false },
+      { "text": "Belle", "correct": false },
+      { "text": "Cinderella", "correct": false }
+    ]
+  },
+  {
+    "question": "What kind of animal is Bambi?",
+    "answers": [
+      { "text": "Rabbit", "correct": false },
+      { "text": "Deer", "correct": true },
+      { "text": "Fox", "correct": false },
+      { "text": "Squirrel", "correct": false }
+    ]
+  },
+  {
+    "question": "What is the name of the fairy in 'Peter Pan'?",
+    "answers": [
+      { "text": "Tinkerbell", "correct": true },
+      { "text": "Wendy", "correct": false },
+      { "text": "Tiger Lily", "correct": false },
+      { "text": "Cinderella", "correct": false }
+    ]
+  },
+  {
+    "question": "Which Disney princess is known for having a glass slipper?",
+    "answers": [
+      { "text": "Rapunzel", "correct": false },
+      { "text": "Cinderella", "correct": true },
+      { "text": "Snow White", "correct": false },
+      { "text": "Ariel", "correct": false }
+    ]
+  },
+  {
+    "question": "What is the name of the fish in 'Finding Nemo'?",
+    "answers": [
+      { "text": "Nemo", "correct": true },
+      { "text": "Dory", "correct": false },
+      { "text": "Marlin", "correct": false },
+      { "text": "Squirt", "correct": false }
+    ]
+  },
+  {
+    "question": "In 'Mulan,' what is the name of Mulan's dragon companion?",
+    "answers": [
+      { "text": "Mushu", "correct": true },
+      { "text": "Flounder", "correct": false },
+      { "text": "Pascal", "correct": false },
+      { "text": "Flick", "correct": false }
+    ]
+  },
+  {
+    "question": "Which Disney movie features a character named Lightning McQueen?",
+    "answers": [
+      { "text": "Cars", "correct": true },
+      { "text": "Toy Story", "correct": false },
+      { "text": "Monsters, Inc.", "correct": false },
+      { "text": "The Incredibles", "correct": false }
+    ]
+  },
+  {
+    "question": "In 'The Little Mermaid,' what is the name of the sea witch?",
+    "answers": [
+      { "text": "Ursula", "correct": true },
+      { "text": "Maleficent", "correct": false },
+      { "text": "Cruella de Vil", "correct": false },
+      { "text": "Mother Gothel", "correct": false }
+    ]
+  },
+  {
+    "question": "What was the first full-length animated feature film produced by Disney?",
+    "answers": [
+      { "text": "Snow White and the Seven Dwarfs", "correct": true },
+      { "text": "Cinderella", "correct": false },
+      { "text": "Pinocchio", "correct": false },
+      { "text": "Fantasia", "correct": false }
+    ]
+  },
+  {
+    "question": "Which Disney character says, 'Just keep swimming'?",
+    "answers": [
+      { "text": "Dory", "correct": true },
+      { "text": "Nemo", "correct": false },
+      { "text": "Ariel", "correct": false },
+      { "text": "Marlin", "correct": false }
+    ]
+  },
+  {
+    "question": "In 'Toy Story,' what is the name of the cowboy doll?",
+    "answers": [
+      { "text": "Buzz Lightyear", "correct": false },
+      { "text": "Woody", "correct": true },
+      { "text": "Rex", "correct": false },
+      { "text": "Slinky Dog", "correct": false }
+    ]
+  },
+  {
+    "question": "In 'Frozen 2,' who is Elsa's younger sister?",
+    "answers": [
+      { "text": "Ariel", "correct": false },
+      { "text": "Anna", "correct": true },
+      { "text": "Rapunzel", "correct": false },
+      { "text": "Belle", "correct": false }
+    ]
+  },
+  {
+    "question": "What is the name of Simba’s lioness friend in 'The Lion King'?",
+    "answers": [
+      { "text": "Nala", "correct": true },
+      { "text": "Timon", "correct": false },
+      { "text": "Sarabi", "correct": false },
+      { "text": "Zazu", "correct": false }
+    ]
+  },
+  {
+    "question": "In 'The Jungle Book,' who is the bear who befriends Mowgli?",
+    "answers": [
+      { "text": "Baloo", "correct": true },
+      { "text": "Shere Khan", "correct": false },
+      { "text": "Bagheera", "correct": false },
+      { "text": "Kaa", "correct": false }
+    ]
+  },
+  {
+    "question": "What is the name of the toy in 'Toy Story' who believes he is a real space ranger?",
+    "answers": [
+      { "text": "Buzz Lightyear", "correct": true },
+      { "text": "Woody", "correct": false },
+      { "text": "Mr. Potato Head", "correct":
