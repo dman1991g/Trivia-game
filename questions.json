@@ -196,10 +196,5 @@
       { "text": "Bagheera", "correct": false },
       { "text": "Kaa", "correct": false }
     ]
-  },
-  {
-    "question": "What is the name of the toy in 'Toy Story' who believes he is a real space ranger?",
-    "answers": [
-      { "text": "Buzz Lightyear", "correct": true },
-      { "text": "Woody", "correct": false },
-      { "text": "Mr. Potato Head", "correct":
+  }
+]
