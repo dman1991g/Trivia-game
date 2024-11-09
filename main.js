@@ -5,7 +5,7 @@ let correctAnswers = 0; // Track the correct answers
 
 function startQuiz() {
   const questionBox = document.getElementById('questionBox');
-  const nextButton = document.getElementById('next-btn');
+  const nextButton = document.getElementById('next-Btn');
   const questionContainer = document.getElementById('question-container');
   
   questionContainer.style.display = 'block';
