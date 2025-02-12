@@ -24,7 +24,7 @@ function startQuiz() {
       }
 
       // Shuffle and select a subset of questions
-      const numberOfQuestions = 10; // Adjust to desired count
+      const numberOfQuestions = 20; // Adjust to desired count
       const selectedQuestions = shuffleArray(data).slice(0, numberOfQuestions);
       
       displayQuestion(selectedQuestions[0]);
